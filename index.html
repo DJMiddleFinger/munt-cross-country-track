@@ -175,6 +175,27 @@ section { padding-block: 72px; }
 .head { display: grid; gap: 14px; margin-bottom: 36px; }
 .head p { color: var(--muted); }
 
+/* mascot */
+.values-top { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 32px; align-items: start; }
+.mascot { margin: 0; display: grid; justify-items: center; gap: 6px; }
+.mascot svg { width: 190px; max-width: 100%; height: auto; display: block; overflow: visible; }
+.mascot figcaption { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.mascot .beam { fill: var(--fg); }
+.mascot .pivot { fill: var(--bg); stroke: var(--fg); stroke-width: 2; }
+.mascot .string { stroke: var(--fg); stroke-width: 2.5; }
+.mascot .arc { fill: none; stroke: var(--line); stroke-width: 2; stroke-dasharray: 3 7; stroke-linecap: round; }
+.mascot .bob { fill: var(--accent); stroke: var(--fg); stroke-width: 3; }
+.mascot .bob-m { font-family: var(--font-display); font-weight: 900; font-size: 32px; fill: var(--accent-ink); }
+.mascot .arm { transform-box: view-box; transform-origin: 100px 14px; transform: rotate(-26deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .mascot .arm { animation: swing 2.4s ease-in-out infinite alternate; }
+  @keyframes swing { from { transform: rotate(-26deg); } to { transform: rotate(26deg); } }
+}
+@media (max-width: 640px) {
+  .values-top { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .mascot { margin-bottom: 28px; }
+}
+
 /* values */
 .values { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 3px solid var(--fg); }
 .values li { list-style: none; padding: 22px 20px 8px 0; }
@@ -307,10 +328,25 @@ footer a { color: var(--flame); }
 
   <section id="values">
     <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">What MUNT means</p>
-        <h2>Four words, one team</h2>
-        <p>Our name is our standard. Every runner, jumper and thrower who pulls on a MUNT singlet signs on to all four.</p>
+      <div class="values-top">
+        <div class="head">
+          <p class="eyebrow">What MUNT means</p>
+          <h2>Four words, one team</h2>
+          <p>Our name is our standard. Every runner, jumper and thrower who pulls on a MUNT singlet signs on to all four.</p>
+        </div>
+        <figure class="mascot">
+          <svg viewBox="0 0 200 230" role="img" aria-label="The MUNT mascot, a pendulum, swinging back and forth">
+            <path class="arc" d="M 28 112 A 150 150 0 0 0 172 112"/>
+            <rect class="beam" x="40" y="4" width="120" height="10" rx="2"/>
+            <g class="arm">
+              <line class="string" x1="100" y1="14" x2="100" y2="164"/>
+              <circle class="bob" cx="100" cy="190" r="28"/>
+              <text class="bob-m" x="100" y="199" text-anchor="middle">M</text>
+            </g>
+            <circle class="pivot" cx="100" cy="14" r="5"/>
+          </svg>
+          <figcaption>Our mascot: the pendulum</figcaption>
+        </figure>
       </div>
       <ul class="values">
         <li><h3>Morally</h3><p>We do what is right in competition and in the hallway. Honest effort, honest results.</p></li>
